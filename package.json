@@ -1,0 +1,33 @@
+{
+   "name": "realwind",
+   "version": "0.0.5",
+   "keywords": [
+      "csa-template"
+   ],
+   "scripts": {
+      "preinstall": "npm run tailwind",
+      "start": "snowpack dev",
+      "prebuild": "NODE_ENV=production npm run tailwind",
+      "build": "snowpack build",
+      "format": "prettier --write \"src/**/*.{js,jsx}\"",
+      "lint": "prettier --check \"src/**/*.{js,jsx}\"",
+      "tailwind": "npx tailwindcss-cli@latest build ./src/tailwind.css -c ./tailwind.js -o ./src/tailwind.output.css"
+   },
+   "dependencies": {
+      "dayjs": "^1.10.4",
+      "history": "^5.0.0",
+      "react": "^17.0.0",
+      "react-dom": "^17.0.0",
+      "react-modal": "^3.12.1",
+      "react-router-dom": "^6.0.0-beta.0",
+      "react-table": "^7.6.3"
+   },
+   "devDependencies": {
+      "@snowpack/plugin-react-refresh": "^2.4.0",
+      "faker": "^5.4.0",
+      "prettier": "^2.0.5",
+      "react-inlinesvg": "^2.2.2",
+      "snowpack": "^3.0.1",
+      "tailwindcss": "^2.0.3"
+   }
+}
