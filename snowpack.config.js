@@ -4,6 +4,10 @@ module.exports = {
       public: { url: "/", static: true },
       src: { url: "/dist" }
    },
+   alias: {
+      components: "./src/components",
+      assets: "./src/assets"
+   },
    plugins: ["@snowpack/plugin-react-refresh"],
    routes: [
       /* Enable an SPA Fallback in development: */

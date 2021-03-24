@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useTable } from "react-table";
 
-import StatusIndicator from "./StatusIndicator";
+import StatusIndicator from "components/StatusIndicator";
 
 export default ({ columns, data }) => {
    const {

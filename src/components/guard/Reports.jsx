@@ -5,10 +5,10 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import { Routes, Route } from "react-router-dom";
 
-import ReportsTable from "../ReportsTable.jsx";
-import Report from "../report";
+import ReportsTable from "components/reports/ReportsTable";
+import Report from "components/report";
 
-import search from "../../assets/icons/search.svg";
+import search from "assets/icons/search.svg";
 
 export default _ => {
    dayjs.extend(relativeTime);
@@ -78,7 +78,7 @@ export default _ => {
                </>
             }
          />
-         <Route path=":id" element={<Report />} />
+         <Route path=":id" element={<Report guard />} />
       </Routes>
    );
 };

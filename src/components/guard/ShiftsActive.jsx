@@ -1,6 +1,6 @@
 import React from "react";
 
-import Report from "../report";
+import Report from "components/report";
 
 export default _ => {
    return (

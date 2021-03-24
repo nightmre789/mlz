@@ -2,23 +2,23 @@ import React from "react";
 import SVG from "react-inlinesvg";
 
 import TimelineItem from "./TimelineItem";
-import StatusIndicator from "../StatusIndicator";
+import StatusIndicator from "components/StatusIndicator";
 
-import check from "../../assets/icons/check.svg";
+import check from "assets/icons/check.svg";
 
 export default ({ guard }) => {
    return (
       <>
-         <div
-            className={`${
-               guard ? "hidden" : "flex"
-            } gap-4 flex-col lg:flex-row mt-2 mb-8 items-center`}
-         >
+         <div className="gap-4 flex flex-col lg:flex-row mt-2 mb-8 items-center">
             <h1 className="text-white text-3xl text-center lg:text-left">
                Report #2021-0310PQ10
             </h1>
             <StatusIndicator status="Pending review" color="yellow" />
-            <button className="flex font-medium items-center rounded-full focus:outline-none focus:bg-gray-warm-400 hover:bg-gray-warm-300 focus:text-black hover:text-black text-white border-gray-warm-300 border-2 px-4 py-1">
+            <button
+               className={`${
+                  guard ? "hidden" : "flex"
+               } font-medium items-center rounded-full focus:outline-none focus:bg-gray-warm-400 hover:bg-gray-warm-300 focus:text-black hover:text-black text-white border-gray-warm-300 border-2 px-4 py-1`}
+            >
                <SVG src={check} className="fill-current w-5 h-5 mr-2" />
                Approve
             </button>

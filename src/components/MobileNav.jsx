@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import SVG from "react-inlinesvg";
 
-import menu from "../assets/icons/menu.svg";
-import close from "../assets/icons/close.svg";
-import dashboard from "../assets/icons/dashboard.svg";
-import shifts from "../assets/icons/shifts.svg";
-import parking from "../assets/icons/parking.svg";
+import menu from "assets/icons/menu.svg";
+import close from "assets/icons/close.svg";
+import dashboard from "assets/icons/dashboard.svg";
+import shifts from "assets/icons/shifts.svg";
+import parking from "assets/icons/parking.svg";
 
 export default _ => {
    const [open, setOpen] = useState(false);

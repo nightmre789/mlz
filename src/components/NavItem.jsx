@@ -9,6 +9,7 @@ export default props => {
          className={`${
             props.active ? "border-blue-500" : "border-gray-900"
          } flex items-center w-full py-4 text-2xl tracking-wider border-l-4 font-medium focus:outline-none focus:ring-4`}
+         onClick={props.onClick}
       >
          <SVG src={props.src} className="w-12 h-12 mr-10 fill-current ml-14" />
          <div className="flex-1 text-left">{props.label}</div>

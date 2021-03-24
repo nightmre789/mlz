@@ -7,7 +7,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import ShiftsTable from "./ShiftsTable.jsx";
 import ShiftsActive from "./ShiftsActive";
 
-import search from "../../assets/icons/search.svg";
+import search from "assets/icons/search.svg";
 
 export default _ => {
    const [active, setActive] = useState(false);
