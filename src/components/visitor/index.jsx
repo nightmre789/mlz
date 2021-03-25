@@ -77,7 +77,7 @@ export default _ => {
                                     src={quote}
                                     className="w-8 h-8 mt-1 text-white fill-current"
                                  />
-                                 <h1 className="mb-4 text-2xl font-bold text-white lg:text-4xl font-edmond ">
+                                 <h1 className="mt-1 mb-4 text-xl font-bold text-white lg:text-3xl font-edmond ">
                                     Request a free quote
                                  </h1>
                               </div>
