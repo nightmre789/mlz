@@ -14,6 +14,7 @@
       "tailwind": "npx tailwindcss-cli@latest build ./src/tailwind.css -c ./tailwind.js -o ./src/tailwind.output.css"
    },
    "dependencies": {
+      "@headlessui/react": "^0.3.1",
       "dayjs": "^1.10.4",
       "history": "^5.0.0",
       "react": "^17.0.0",

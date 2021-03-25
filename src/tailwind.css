@@ -54,6 +54,9 @@
       font-weight: 900;
       src: url(./assets/fonts/LibreFranklin-Black.ttf) format("ttf");
    }
+   .font-libre {
+      font-family: "Libre Franklin", sans-serif;
+   }
    @font-face {
       font-family: DM Sans;
       font-weight: 400;
@@ -69,10 +72,15 @@
       font-weight: 700;
       src: url(./assets/fonts/DMSans-Bold.ttf) format("ttf");
    }
-   .font-libre {
-      font-family: "Libre Franklin", sans-serif;
-   }
    .font-dm {
       font-family: "DM Sans", sans-serif;
+   }
+   @font-face {
+      font-family: "EdmondSans";
+      src: local("EdmondSans"),
+         url(../assets/fonts/Edmondsans-Regular.otf) format("opentype");
+   }
+   .font-edmond {
+      font-family: "EdmondSans", sans-serif;
    }
 }
