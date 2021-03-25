@@ -12,47 +12,47 @@
    @font-face {
       font-family: Libre Franklin;
       font-weight: 100;
-      src: url(assets/fonts/LibreFranklin-Thin.ttf) format("ttf");
+      src: url(.assets/fonts/LibreFranklin-Thin.ttf) format("ttf");
    }
    @font-face {
       font-family: Libre Franklin;
       font-weight: 200;
-      src: url(assets/fonts/LibreFranklin-ExtraLight.ttf) format("ttf");
+      src: url(.assets/fonts/LibreFranklin-ExtraLight.ttf) format("ttf");
    }
    @font-face {
       font-family: Libre Franklin;
       font-weight: 300;
-      src: url(assets/fonts/LibreFranklin-Light.ttf) format("ttf");
+      src: url(.assets/fonts/LibreFranklin-Light.ttf) format("ttf");
    }
    @font-face {
       font-family: Libre Franklin;
       font-weight: 400;
-      src: url(assets/fonts/LibreFranklin-Regular.ttf) format("ttf");
+      src: url(.assets/fonts/LibreFranklin-Regular.ttf) format("ttf");
    }
    @font-face {
       font-family: Libre Franklin;
       font-weight: 500;
-      src: url(assets/fonts/LibreFranklin-Medium.ttf) format("ttf");
+      src: url(.assets/fonts/LibreFranklin-Medium.ttf) format("ttf");
    }
    @font-face {
       font-family: Libre Franklin;
       font-weight: 600;
-      src: url(assets/fonts/LibreFranklin-SemiBold.ttf) format("ttf");
+      src: url(.assets/fonts/LibreFranklin-SemiBold.ttf) format("ttf");
    }
    @font-face {
       font-family: Libre Franklin;
       font-weight: 700;
-      src: url(assets/fonts/LibreFranklin-Bold.ttf) format("ttf");
+      src: url(.assets/fonts/LibreFranklin-Bold.ttf) format("ttf");
    }
    @font-face {
       font-family: Libre Franklin;
       font-weight: 800;
-      src: url(assets/fonts/LibreFranklin-ExtraBold.ttf) format("ttf");
+      src: url(.assets/fonts/LibreFranklin-ExtraBold.ttf) format("ttf");
    }
    @font-face {
       font-family: Libre Franklin;
       font-weight: 900;
-      src: url(assets/fonts/LibreFranklin-Black.ttf) format("ttf");
+      src: url(.assets/fonts/LibreFranklin-Black.ttf) format("ttf");
    }
    .font-libre {
       font-family: "Libre Franklin", sans-serif;
@@ -60,17 +60,17 @@
    @font-face {
       font-family: DM Sans;
       font-weight: 400;
-      src: url(assets/fonts/DMSans-Regular.ttf) format("ttf");
+      src: url(.assets/fonts/DMSans-Regular.ttf) format("ttf");
    }
    @font-face {
       font-family: DM Sans;
       font-weight: 500;
-      src: url(assets/fonts/DMSans-Medium.ttf) format("ttf");
+      src: url(.assets/fonts/DMSans-Medium.ttf) format("ttf");
    }
    @font-face {
       font-family: DM Sans;
       font-weight: 700;
-      src: url(assets/fonts/DMSans-Bold.ttf) format("ttf");
+      src: url(.assets/fonts/DMSans-Bold.ttf) format("ttf");
    }
    .font-dm {
       font-family: "DM Sans", sans-serif;
@@ -78,7 +78,7 @@
    @font-face {
       font-family: "EdmondSans";
       src: local("EdmondSans"),
-         url(assets/fonts/Edmondsans-Regular.otf) format("opentype");
+         url(.assets/fonts/Edmondsans-Regular.otf) format("opentype");
    }
    .font-edmond {
       font-family: "EdmondSans", sans-serif;
