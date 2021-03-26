@@ -41,8 +41,8 @@ export default _ => {
                         className="w-full px-5 py-1 text-white bg-gray-800 border-2 border-gray-700 rounded-md font-lg focus:border-yellow-200 focus:outline-none focus:bg-gray-900"
                         type="text"
                         required=""
-                        placeholder="Your SIN"
-                        aria-label="Social Insurance Number"
+                        placeholder="Your Model"
+                        aria-label="Car Model"
                      />
                   </div>
                </div>
