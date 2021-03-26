@@ -8,6 +8,7 @@ import LandingGallery from "./LandingGallery";
 import ServiceCard from "./ServiceCard";
 import Recruitment from "./Recruitment";
 import Parking from "./Parking";
+import Login from "./Login";
 
 import security from "assets/images/security.png";
 import logo from "assets/icons/logo.svg";
@@ -19,6 +20,7 @@ import mall from "assets/icons/mall.svg";
 import dealership from "assets/icons/dealership.svg";
 import shield from "assets/icons/shield.svg";
 import quote from "assets/icons/quote.svg";
+import arrow from "assets/icons/arrow.svg";
 
 const services = [
    "Condominium Security",
@@ -34,9 +36,9 @@ const services = [
 export default _ => {
    const [selectedService, setSelectedService] = useState(services[0]);
    return (
-      <div className="relative min-h-screen overflow-hidden">
+      <div className="relative min-h-screen bg-gray-900 overflow-hidden">
          <nav className="p-4 bg-gray-900">
-            <div className="flex items-center mx-auto text-lg font-semibold text-white max-w-screen-2xl 2xl:p-4 gap-x-8 ">
+            <div className="relative flex items-center mx-auto text-lg font-semibold text-white max-w-screen-2xl 2xl:p-4 gap-x-8 ">
                <SVG src={logo} className="w-16 mr-4" />
                <Link to="/" className="hover:text-yellow-200">
                   Home
@@ -46,6 +48,16 @@ export default _ => {
                </Link>
                <Link to="parking" className="hover:text-yellow-200">
                   Parking Ticket
+               </Link>
+               <Link
+                  to="login"
+                  className="hidden sm:flex items-center md:absolute md:right-0 md:mr-20 z-20 px-8 md:px-16 py-2 md:py-3 text-2xl font-medium text-gray-800 bg-white bg-opacity-50 hover:bg-opacity-80 shadow-xl border border-yellow-500 md:border-gray-200 gap-x-2 transform group hover:-translate-y-1 transition duration-150 rounded-sm"
+               >
+                  <p className="mb-0.5">Sign in</p>
+                  <SVG
+                     src={arrow}
+                     className="transform transition duration-150 group-hover:translate-x-6"
+                  />
                </Link>
             </div>
          </nav>
@@ -258,7 +270,7 @@ export default _ => {
                            }}
                         />
                         <div className="mx-auto mb-24 2xl:mx-0 2xl:mr-24 max-w-screen-2xl 2xl:p-4">
-                           <h1 className="relative z-10 mb-8 font-semibold tracking-wide text-center font-edmond text-7xl">
+                           <h1 className="mb-8 font-semibold tracking-wide text-center font-edmond text-7xl">
                               Our Services
                            </h1>
                            <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
@@ -318,6 +330,7 @@ export default _ => {
             />
             <Route path="recruitment" element={<Recruitment />} />
             <Route path="parking" element={<Parking />} />
+            <Route path="login" element={<Login />} />
          </Routes>
       </div>
    );

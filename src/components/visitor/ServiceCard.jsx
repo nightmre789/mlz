@@ -4,7 +4,7 @@ import SVG from "react-inlinesvg";
 
 export default ({ src, title, text }) => {
    return (
-      <div className="flex flex-col items-center p-4 text-center text-gray-800 duration-100 transform rounded-lg cursor-default hover:shadow-lg hover:bg-white">
+      <div className="flex flex-col items-center p-4 text-center text-gray-800 duration-100 transform rounded-lg cursor-default hover:shadow-lg hover:bg-white hover:bg-opacity-80">
          <div className="flex items-center mt-4 gap-x-4">
             <SVG
                src={src}

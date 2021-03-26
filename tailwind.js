@@ -53,9 +53,19 @@ module.exports = {
                800: "#2d2e2f",
                900: "#1c1d1f"
             }
+         },
+         zIndex: {
+            "-10": "-10"
          }
       }
    },
-   variants: {},
-   plugins: []
+   variants: {
+      extend: {
+         translate: ["group-hover"]
+      }
+   },
+   plugins: [
+      require("@tailwindcss/forms"),
+      require("@tailwindcss/custom-forms")
+   ]
 };
