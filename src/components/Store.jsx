@@ -12,7 +12,7 @@ const Reducer = (state, action) => {
 
 const initialState = {
    user: {
-      type: "Visitor"
+      type: "Manager"
    }
 };
 
