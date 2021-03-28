@@ -2,18 +2,16 @@ import React, { createContext, useReducer } from "react";
 
 const Reducer = (state, action) => {
    switch (action.type) {
-      case "SET_USER":
+      case "SET_TYPE":
+         console.log(state, action);
          return {
-            ...state,
-            user: action.payload
+            type: action.payload
          };
    }
 };
 
 const initialState = {
-   user: {
-      type: "Visitor"
-   }
+   type: "Visitor"
 };
 
 export default ({ children }) => {

@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import SVG from "react-inlinesvg";
 import { Context } from "components/Store";
+import { useNavigate } from "react-router-dom";
 
 import logo from "assets/icons/logo.svg";
 
 export default _ => {
-   const [state, dispatch] = useContext(Context);
+   let navigate = useNavigate();
+   const [_, dispatch] = useContext(Context);
    return (
       <div class=" flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
          <div class="max-w-md w-full space-y-8">
@@ -50,8 +52,10 @@ export default _ => {
                <div>
                   <button
                      type="submit"
-                     onClick={_ => {
-                        dispatch("SET_USER", "Visitor");
+                     onClick={e => {
+                        e.preventDefault();
+                        dispatch({ type: "SET_TYPE", payload: "Guard" });
+                        navigate("/");
                      }}
                      class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
                   >

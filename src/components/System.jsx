@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Route, Routes } from "react-router-dom";
+import { Context } from "components/Store";
+import { useNavigate } from "react-router-dom";
 import SVG from "react-inlinesvg";
 
 import Dashboard from "./guard/Dashboard";
@@ -21,6 +23,9 @@ import users from "assets/icons/users.svg";
 export default ({ state }) => {
    const [navItems, setNavItems] = useState([]);
    const [activePage, setActivePage] = useState(0);
+   const [_, dispatch] = useContext(Context);
+   let navigate = useNavigate();
+
    useEffect(
       _ => {
          let items = [
@@ -28,14 +33,14 @@ export default ({ state }) => {
             { label: "Reports", to: "reports", src: reports, active: false },
             { label: "Parking", to: "parking", src: parkingIcon, active: false }
          ];
-         if (state.user.type === "Guard")
+         if (state.type === "Guard")
             items.unshift({
                label: "Dashboard",
                to: "/",
                src: dashboard,
                active: true
             });
-         else if (state.user.type === "Manager")
+         else if (state.type === "Manager")
             items.unshift({
                label: "Accounts",
                to: "/",
@@ -47,10 +52,10 @@ export default ({ state }) => {
       [state]
    );
    return (
-      <div className="md:flex h-screen overflow-y-hidden bg-gray-900">
+      <div className="h-screen overflow-y-hidden bg-gray-900 md:flex">
          <nav className="flex-col items-center hidden my-10 xl:w-1/6 md:flex">
             <h1 className="mb-12 text-5xl text-white font-libre">
-               {state.user.type}
+               {state.type}
             </h1>
             <div className="flex flex-col flex-1 w-full mt-10 gap-y-4 text-gray-warm-050 ">
                {navItems.map(({ label, to, src, active }, i) => (
@@ -64,29 +69,31 @@ export default ({ state }) => {
                   />
                ))}
             </div>
-            <button className="flex items-center px-10 py-4 justify-center text-2xl font-medium text-white bg-blue-500 gap-x-4 rounded-lg focus:outline-none hover:bg-blue-600 focus:bg-blue-700 ">
+            <button
+               onClick={_ => {
+                  dispatch({ type: "SET_TYPE", payload: "Visitor" });
+                  navigate("/");
+               }}
+               className="flex items-center justify-center px-10 py-4 text-2xl font-medium text-white bg-blue-500 rounded-lg gap-x-4 focus:outline-none hover:bg-blue-600 focus:bg-blue-700 "
+            >
                <SVG src={door} className="fill-current" />
                Sign Out
             </button>
          </nav>
-         <div className="flex-1 h-full overflow-x-hidden px-4 pt-4 md:pt-10 overflow-y-auto md:px-14">
+         <div className="flex-1 h-full px-4 pt-4 overflow-x-hidden overflow-y-auto md:pt-10 md:px-14">
             <MobileNav />
             <Routes>
                <Route
                   path="/"
                   element={
-                     state.user.type === "Guard" ? <Dashboard /> : <Accounts />
+                     state.type === "Guard" ? <Dashboard /> : <Accounts />
                   }
                />
                <Route path="reports/*" element={<Reports />} />
                <Route
                   path="shifts/*"
                   element={
-                     state.user.type === "Guard" ? (
-                        <GuardShifts />
-                     ) : (
-                        <div>test</div>
-                     )
+                     state.type === "Guard" ? <GuardShifts /> : <div>test</div>
                   }
                />
                <Route path="parking" element={<Parking />} />

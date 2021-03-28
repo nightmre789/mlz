@@ -33,7 +33,7 @@ export default _ => {
             accessor: "expiry"
          }
       ];
-      if (state.user.type === "Manager")
+      if (state.type === "Manager")
          cols.push({
             Header: "Delete",
             accessor: "delete"
@@ -52,7 +52,7 @@ export default _ => {
          location: faker.address.streetAddress(),
          expiry: date.fromNow(true)
       };
-      if (state.user.type === "Manager") row.delete = "Delete";
+      if (state.type === "Manager") row.delete = "Delete";
       data.push(row);
    }
 

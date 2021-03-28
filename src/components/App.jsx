@@ -7,9 +7,5 @@ import System from "./System";
 export default _ => {
    const [state, dispatch] = useContext(Context);
 
-   return state.user.type === "Visitor" ? (
-      <Visitor />
-   ) : (
-      <System state={state} />
-   );
+   return state.type === "Visitor" ? <Visitor /> : <System state={state} />;
 };
