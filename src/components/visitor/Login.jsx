@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import SVG from "react-inlinesvg";
+import { Context } from "components/Store";
 
 import logo from "assets/icons/logo.svg";
 
 export default _ => {
+   const [state, dispatch] = useContext(Context);
    return (
       <div class=" flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
          <div class="max-w-md w-full space-y-8">
             <div className="flex flex-col items-center">
-               <SVG src={logo} className="h-16 w-16" />
+               <SVG src={logo} className="w-16 h-16" />
                <h2 class="mt-6 text-3xl font-bold text-yellow-400">
                   Sign in to your account
                </h2>
@@ -48,6 +50,9 @@ export default _ => {
                <div>
                   <button
                      type="submit"
+                     onClick={_ => {
+                        dispatch("SET_USER", "Visitor");
+                     }}
                      class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
                   >
                      <span class="absolute left-0 inset-y-0 flex items-center pl-3">
