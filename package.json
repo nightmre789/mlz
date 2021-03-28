@@ -25,6 +25,7 @@
    },
    "devDependencies": {
       "@snowpack/plugin-react-refresh": "^2.4.0",
+      "@snowpack/plugin-webpack": "^2.3.1",
       "@tailwindcss/custom-forms": "^0.2.1",
       "@tailwindcss/forms": "^0.3.2",
       "faker": "^5.4.0",
