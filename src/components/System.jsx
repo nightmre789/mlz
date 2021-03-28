@@ -20,7 +20,7 @@ import reports from "assets/icons/reports.svg";
 import door from "assets/icons/door.svg";
 import users from "assets/icons/users.svg";
 
-export default ({ state }) => {
+export default _ => {
    const [navItems, setNavItems] = useState([]);
    const [activePage, setActivePage] = useState(0);
    const [state, dispatch] = useContext(Context);
