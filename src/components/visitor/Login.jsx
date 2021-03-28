@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 import logo from "assets/icons/logo.svg";
 
-export default _ => {
+export default () => {
    let navigate = useNavigate();
-   const [_, dispatch] = useContext(Context);
+   const [state, dispatch] = useContext(Context);
    return (
       <div class=" flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
          <div class="max-w-md w-full space-y-8">

@@ -23,7 +23,7 @@ import users from "assets/icons/users.svg";
 export default ({ state }) => {
    const [navItems, setNavItems] = useState([]);
    const [activePage, setActivePage] = useState(0);
-   const [_, dispatch] = useContext(Context);
+   const [state, dispatch] = useContext(Context);
    let navigate = useNavigate();
 
    useEffect(
