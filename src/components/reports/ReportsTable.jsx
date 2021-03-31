@@ -67,7 +67,7 @@ export default ({ columns, data }) => {
                               >
                                  {cell.value === "View" ? (
                                     <Link to="2">
-                                       <div className="w-full md:w-2/3 py-2 text-lg font-medium text-center rounded-full text-gray-warm-100 bg-gray-warm-500 hover:bg-gray-warm-600 focus:ring-2 focus:ring-white focus:outline-none focus:bg-gray-warm-700">
+                                       <div className="w-full py-2 text-lg font-medium text-center rounded-full md:w-2/3 text-gray-warm-100 bg-gray-warm-500 hover:bg-gray-warm-600 focus:ring-2 focus:ring-white focus:outline-none focus:bg-gray-warm-700">
                                           View
                                        </div>
                                     </Link>

@@ -6,5 +6,5 @@ import ManagerReports from "components/manager/Reports";
 
 export default _ => {
    const [state, dispatch] = useContext(Context);
-   return state.type === "Guard" ? <GuardReports /> : <ManagerReports />;
+   return state.user.type === "Guard" ? <GuardReports /> : <ManagerReports />;
 };

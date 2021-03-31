@@ -9,6 +9,7 @@ import ServiceCard from "./ServiceCard";
 import Recruitment from "./Recruitment";
 import Parking from "./Parking";
 import Login from "./Login";
+import MobileNav from "components/MobileNav";
 
 import security from "assets/images/security.png";
 import logo from "assets/icons/logo.svg";
@@ -36,9 +37,9 @@ const services = [
 export default _ => {
    const [selectedService, setSelectedService] = useState(services[0]);
    return (
-      <div className="relative min-h-screen bg-gray-900 overflow-hidden">
-         <nav className="p-4 bg-gray-900">
-            <div className="relative flex items-center mx-auto text-lg font-semibold text-white max-w-screen-2xl 2xl:p-4 gap-x-8 ">
+      <div className="relative min-h-screen overflow-hidden bg-gray-900">
+         <nav className="p-4 bg-gray-900 ">
+            <div className="relative items-center hidden mx-auto text-lg font-semibold text-white md:flex max-w-screen-2xl 2xl:p-4 gap-x-8 ">
                <SVG src={logo} className="w-16 mr-4" />
                <Link to="/" className="hover:text-yellow-200">
                   Home
@@ -51,16 +52,17 @@ export default _ => {
                </Link>
                <Link
                   to="login"
-                  className="hidden sm:flex items-center md:absolute md:right-0 md:mr-20 z-20 px-8 md:px-16 py-2 md:py-3 text-2xl font-medium text-gray-800 bg-white bg-opacity-50 hover:bg-opacity-80 shadow-xl border border-yellow-500 md:border-gray-200 gap-x-2 transform group hover:-translate-y-1 transition duration-150 rounded-sm"
+                  className="z-20 items-center hidden px-8 py-2 text-2xl font-medium text-gray-800 transition duration-150 transform bg-white bg-opacity-50 border border-yellow-500 rounded-sm shadow-xl sm:flex md:absolute md:right-0 md:mr-20 md:px-16 md:py-3 hover:bg-opacity-80 md:border-gray-200 gap-x-2 group hover:-translate-y-1"
                >
                   <p className="mb-0.5">Sign in</p>
                   <SVG
                      src={arrow}
-                     className="transform transition duration-150 group-hover:translate-x-6"
+                     className="transition duration-150 transform group-hover:translate-x-6"
                   />
                </Link>
             </div>
          </nav>
+         <MobileNav />
          <Routes>
             <Route
                path="/"
@@ -83,7 +85,7 @@ export default _ => {
                               <br />
                               with our team!
                            </h1>
-                           <div className="w-full p-6 my-16 leading-loose bg-gray-800 rounded-lg md:w-2/3 xl:w-1/2">
+                           <div className="w-full p-6 my-16 leading-loose bg-gray-800 rounded-lg  md:w-2/3 xl:w-1/2">
                               <div className="flex gap-x-4">
                                  <SVG
                                     src={quote}
@@ -94,22 +96,21 @@ export default _ => {
                                  </h1>
                               </div>
 
-                              <form className="">
-                                 <div>
-                                    <label
-                                       className="block text-sm text-white"
-                                       for="email"
-                                    >
-                                       Email
-                                    </label>
-                                    <input
-                                       className="w-full px-5 py-1 text-white bg-gray-700 border-2 border-gray-700 rounded-md focus:border-yellow-200 focus:outline-none focus:bg-gray-800"
-                                       type="text"
-                                       required=""
-                                       placeholder="Your Email"
-                                       aria-label="Email"
-                                    />
-                                 </div>
+                              <form>
+                                 <label
+                                    className="block text-sm text-white"
+                                    for="email"
+                                 >
+                                    Email
+                                 </label>
+                                 <input
+                                    className="w-full px-5 py-1 text-white bg-gray-700 border-2 border-gray-700 rounded-md focus:border-yellow-200 focus:outline-none focus:bg-gray-800"
+                                    type="text"
+                                    required=""
+                                    placeholder="Your Email"
+                                    aria-label="Email"
+                                 />
+
                                  <div className="flex items-end mt-2 gap-x-3">
                                     <div className="w-1/2">
                                        <label
