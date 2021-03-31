@@ -64,7 +64,7 @@ export default ({ columns, data, setActive }) => {
                               >
                                  {cell.value === "Arrive on Site" ? (
                                     <button
-                                       className="w-full md:w-2/3 py-2 text-lg font-medium text-center rounded-full text-blue-100 bg-blue-500 hover:bg-blue-600 focus:ring-2 focus:ring-white focus:outline-none focus:bg-blue-700"
+                                       className="w-full py-2 text-lg font-medium text-center text-blue-100 bg-blue-500 rounded-md md:w-2/3 sm:rounded-full hover:bg-blue-600 focus:ring-2 focus:ring-white focus:outline-none focus:bg-blue-700"
                                        onClick={setActive}
                                     >
                                        Arrive on Site

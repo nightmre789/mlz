@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { Link, Route, Routes } from "react-router-dom";
+import Slider from "react-slick";
 
 import SVG from "react-inlinesvg";
 
@@ -23,6 +24,13 @@ import shield from "assets/icons/shield.svg";
 import quote from "assets/icons/quote.svg";
 import arrow from "assets/icons/arrow.svg";
 
+import fleet1 from "assets/images/fleet1.jpg";
+import fleet2 from "assets/images/fleet2.jpg";
+import fleet3 from "assets/images/fleet3.jpg";
+import fleet4 from "assets/images/fleet4.jpg";
+import fleet5 from "assets/images/fleet5.jpg";
+import fleet6 from "assets/images/fleet6.jpg";
+
 const services = [
    "Condominium Security",
    "Construction Security",
@@ -36,9 +44,20 @@ const services = [
 /* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 export default _ => {
    const [selectedService, setSelectedService] = useState(services[0]);
+   const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      fade: true,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 3000
+   };
    return (
       <div className="relative min-h-screen overflow-hidden bg-gray-900">
-         <nav className="p-4 bg-gray-900 ">
+         <nav className="hidden p-4 bg-gray-900 md:block ">
             <div className="relative items-center hidden mx-auto text-lg font-semibold text-white md:flex max-w-screen-2xl 2xl:p-4 gap-x-8 ">
                <SVG src={logo} className="w-16 mr-4" />
                <Link to="/" className="hover:text-yellow-200">
@@ -69,23 +88,21 @@ export default _ => {
                element={
                   <>
                      <LandingGallery />
-                     <div className="p-6 bg-gray-900 bg-opacity-0 md:bg-opacity-100">
-                        <div className="absolute top-0 left-0 w-full h-full bg-yellow-200 -z-10 md:hidden">
-                           <img
-                              src={security}
-                              alt="security"
-                              className="w-full"
-                           />
-                        </div>
-
-                        <div className="mx-auto max-w-screen-2xl 2xl:p-4">
+                     <div className="bg-gray-900 bg-opacity-0 md:p-6 md:bg-opacity-100">
+                        <Slider {...settings} className="md:hidden">
+                           <img src={fleet1} />
+                           <img src={fleet2} />
+                           <img src={fleet4} />
+                           <img src={fleet6} />
+                        </Slider>
+                        <div className="hidden mx-auto md:block max-w-screen-2xl 2xl:p-4">
                            <h1 className="relative z-10 text-6xl font-semibold text-center md:text-left md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-gray-50 font-edmond">
                               Get{" "}
                               <span className="text-yellow-200">Secured</span>
                               <br />
                               with our team!
                            </h1>
-                           <div className="w-full p-6 my-16 leading-loose bg-gray-800 rounded-lg  md:w-2/3 xl:w-1/2">
+                           <div className="w-full p-6 my-16 leading-loose bg-gray-800 rounded-lg md:w-2/3 xl:w-1/2">
                               <div className="flex gap-x-4">
                                  <SVG
                                     src={quote}

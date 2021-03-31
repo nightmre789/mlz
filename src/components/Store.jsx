@@ -15,7 +15,12 @@ const Reducer = (state, action) => {
       case "SET_TYPE":
          let items = [];
          if (action.payload === "Visitor")
-            items = ["Home", "Recruitment", "Parking Ticket", "Sign in"];
+            items = [
+               { label: "Home", src: home, to: "/" },
+               { label: "Recruitment", src: recruitment, to: "recruitment" },
+               { label: "Parking Ticket", src: parking, to: "parking" },
+               { label: "Sign in", src: user, to: "login" }
+            ];
          else {
             items = [
                { label: "Shifts", to: "shifts", src: shifts },

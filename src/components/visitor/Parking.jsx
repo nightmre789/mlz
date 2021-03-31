@@ -3,10 +3,10 @@ import React from "react";
 export default _ => {
    return (
       <div className="h-screen bg-gray-900">
-         <h1 className="text-6xl font-semibold text-center text-yellow-200 font-edmond">
+         <h1 className="text-4xl font-semibold text-center text-yellow-200 md:text-6xl font-edmond">
             Parking Form
          </h1>
-         <div className="w-1/2 pt-6 mx-auto leading-loose">
+         <div className="px-4 pt-6 mx-auto leading-loose md:px-0 md:w-1/2">
             <form className="">
                <div>
                   <label className="block text-white" for="email">

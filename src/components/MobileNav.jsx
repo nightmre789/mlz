@@ -8,21 +8,26 @@ import close from "assets/icons/close.svg";
 import dashboard from "assets/icons/dashboard.svg";
 import shifts from "assets/icons/shifts.svg";
 import parking from "assets/icons/parking.svg";
+import logo from "assets/icons/logo.svg";
 
 import door from "assets/icons/door.svg";
 
-export default ({ items }) => {
+export default _ => {
    const [state, dispatch] = useContext(Context);
    const [open, setOpen] = useState(false);
    return (
       <div className="md:hidden">
-         <div className="px-8 py-4 text-white">
+         <div className="flex items-center px-8 py-4 text-white">
             <button
                onClick={_ => setOpen(!open)}
                className="focus:outline-none focus:ring-2 focus:ring-white"
             >
                <SVG src={menu} className="fill-current" />
             </button>
+            <div className="flex items-center justify-center flex-1 gap-x-3">
+               <SVG src={logo} className="w-8 h-8" />
+               <h1 className="text-xl font-medium font-edmond">MLZ Security</h1>
+            </div>
          </div>
          <div
             className={`fixed flex flex-col gap-y-5 top-0 left-0 px-4 py-10 w-2/3 bg-gray-warm-800 text-gray-warm-100 h-screen shadow-md z-40 ${
@@ -37,13 +42,11 @@ export default ({ items }) => {
                   <SVG src={close} className="fill-current" />
                </button>
             </div>
-            <h1 className="px-4 mb-4 text-4xl font-medium text-white font-libre">
-               {state.user.type}
-            </h1>
             {state.navItems.map(item => (
                <Link
                   className="flex w-full px-4 py-1 text-xl font-medium hover:text-white hover:bg-gray-600 foucs:outline-none focus:bg-gray-500 focus:text-white"
                   to={item.to}
+                  onClick={_ => setOpen(!open)}
                >
                   <SVG src={item.src} className="w-8 h-8 mr-4 fill-current" />
                   <div className="text-left">{item.label}</div>

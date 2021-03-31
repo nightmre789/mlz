@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App.jsx";
 import "./tailwind.output.css";
+
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Store from "components/Store";
