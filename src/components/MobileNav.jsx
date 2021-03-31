@@ -30,7 +30,7 @@ export default _ => {
             </div>
          </div>
          <div
-            className={`fixed flex flex-col gap-y-5 top-0 left-0 px-4 py-10 w-2/3 bg-gray-warm-800 text-gray-warm-100 h-screen shadow-md z-40 ${
+            className={`fixed flex flex-col top-0 left-0 px-4 py-10 w-2/3 bg-gray-warm-800 text-gray-warm-100 h-screen shadow-md z-40 ${
                open ? "" : "hidden"
             }`}
          >
@@ -44,7 +44,7 @@ export default _ => {
             </div>
             {state.navItems.map(item => (
                <Link
-                  className="flex w-full px-4 py-1 text-xl font-medium hover:text-white hover:bg-gray-600 foucs:outline-none focus:bg-gray-500 focus:text-white"
+                  className="flex w-full px-4 py-1 mt-5 text-xl font-medium hover:text-white hover:bg-gray-600 foucs:outline-none focus:bg-gray-500 focus:text-white"
                   to={item.to}
                   onClick={_ => setOpen(!open)}
                >
@@ -58,7 +58,7 @@ export default _ => {
                      dispatch({ type: "SET_TYPE", payload: "Visitor" });
                      navigate("/");
                   }}
-                  className="flex items-center justify-center w-5/6 px-8 py-3 text-lg font-medium text-white bg-blue-500 rounded-lg gap-x-4 focus:outline-none hover:bg-blue-600 focus:bg-blue-700 "
+                  className="flex items-center justify-center w-5/6 px-8 py-3 mt-5 text-lg font-medium text-white bg-blue-500 rounded-lg gap-x-4 focus:outline-none hover:bg-blue-600 focus:bg-blue-700 "
                >
                   <SVG src={door} className="fill-current" />
                   Sign Out
