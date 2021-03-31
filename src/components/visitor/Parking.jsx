@@ -20,8 +20,8 @@ export default _ => {
                      aria-label="Email"
                   />
                </div>
-               <div className="flex items-end mt-2 gap-x-3">
-                  <div className="w-1/2">
+               <div className="flex items-end mt-2">
+                  <div className="w-1/2 mr-3">
                      <label className="block text-white" for="name">
                         Name
                      </label>
@@ -47,8 +47,8 @@ export default _ => {
                   </div>
                </div>
 
-               <div className="flex items-end mt-2 gap-x-3">
-                  <div className="w-1/2">
+               <div className="flex items-end mt-2">
+                  <div className="w-1/2 mr-3">
                      <label className="block text-white" for="Location">
                         Location
                      </label>
@@ -74,8 +74,8 @@ export default _ => {
                   </div>
                </div>
 
-               <div className="flex items-end mt-2 gap-x-3">
-                  <div className="w-1/2">
+               <div className="flex items-end mt-2">
+                  <div className="w-1/2 mr-3">
                      <label className="block text-white" for="unit">
                         Unit # (optional)
                      </label>
