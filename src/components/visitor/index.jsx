@@ -288,10 +288,10 @@ export default _ => {
                            }}
                         />
                         <div className="mx-auto mb-24 2xl:mx-0 2xl:mr-24 max-w-screen-2xl 2xl:p-4">
-                           <h1 className="mb-8 font-semibold tracking-wide text-center font-edmond text-7xl">
+                           <h1 className="my-4 text-5xl font-semibold tracking-wide text-center md:mb-8 font-edmond md:text-7xl">
                               Our Services
                            </h1>
-                           <div className="grid gap-x-4 gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
+                           <div className="grid gap-x-4 md:gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
                               <ServiceCard
                                  src={condo}
                                  title="Condominium Security"
@@ -330,11 +330,11 @@ export default _ => {
                      </div>
                      <div className="relative z-10 p-6 bg-gray-900">
                         <div className="mx-auto max-w-screen-2xl 2xl:p-4">
-                           <div className="flex text-white">
-                              <h1 className="text-xl font-medium">
+                           <div className="text-white md:flex">
+                              <h1 className="text-lg font-medium md:text-xl">
                                  Copyright © 2021 MLZ Security Services
                               </h1>
-                              <div className="flex-1 text-xl font-medium text-right">
+                              <div className="flex-1 mt-2 text-lg font-medium md:mt-0 md:text-xl md:text-right">
                                  <h1>
                                     12-247 Queen St E, Brampton, ON L6W 2B5
                                  </h1>
