@@ -1,13 +1,48 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "../../actions/axios";
 
 export default _ => {
+
+   const [email, setEmail] = useState('');
+   const [name, setName] = useState('');
+   const [carModel, setCarModel] = useState('');
+   const [location, setLocation] = useState('');
+   const [license  , setLicense] = useState('');
+   const [unit, setUnit] = useState('');
+   const [phoneNumber, setPhoneNumber] = useState('');
+
+   const onSubmit = e => {
+      addUser(e);
+   };
+
+   const addUser = async e => {
+      e.preventDefault();
+      await axios
+         .post("/tickets", {
+            email: email,
+            name: name,
+            model: carModel,
+            license: license,
+            phone: phoneNumber,
+            location: location,
+            unit: unit
+         })
+         .then(res => {
+            console.log(res);
+            alert('success');
+         })
+         .catch(err => {
+            console.log(err);
+            alert("Unexpected Error Occured While Submitting Parking Ticket");
+         });
+   };
    return (
       <div className="h-screen bg-gray-900">
          <h1 className="text-4xl font-semibold text-center text-yellow-200 md:text-6xl font-edmond">
             Parking Form
          </h1>
          <div className="px-4 pt-6 mx-auto leading-loose md:px-0 md:w-1/2">
-            <form className="">
+            <form onSubmit={onSubmit} method="POST">
                <div>
                   <label className="block text-white" for="email">
                      Email
@@ -18,6 +53,8 @@ export default _ => {
                      required=""
                      placeholder="Your Email"
                      aria-label="Email"
+                     value={email}
+                     onChange={(e) => { setEmail(e.target.value) }}
                   />
                </div>
                <div className="flex items-end mt-2">
@@ -31,6 +68,8 @@ export default _ => {
                         required=""
                         placeholder="Your Full Name"
                         aria-label="Name"
+                        value={name}
+                        onChange={(e) => { setName(e.target.value) }}
                      />
                   </div>
                   <div className="w-1/2">
@@ -43,6 +82,8 @@ export default _ => {
                         required=""
                         placeholder="Your Model"
                         aria-label="Car Model"
+                        value={carModel}
+                        onChange={(e) => { setCarModel(e.target.value) }}
                      />
                   </div>
                </div>
@@ -58,6 +99,8 @@ export default _ => {
                         required=""
                         placeholder="Location"
                         aria-label="Location"
+                        value={location}
+                        onChange={(e) => { setLocation(e.target.value) }}
                      />
                   </div>
                   <div className="w-1/2">
@@ -70,6 +113,8 @@ export default _ => {
                         required=""
                         placeholder="Your License Plate"
                         aria-label="License Plate Number"
+                        value={license}
+                        onChange={(e) => { setLicense(e.target.value) }}
                      />
                   </div>
                </div>
@@ -85,6 +130,8 @@ export default _ => {
                         required=""
                         placeholder="Unit Number"
                         aria-label="unit"
+                        value={unit}
+                        onChange={(e) => { setUnit(e.target.value) }}
                      />
                   </div>
                   <div className="w-1/2">
@@ -97,6 +144,8 @@ export default _ => {
                         required=""
                         placeholder="Your Phone"
                         aria-label="Phone Number"
+                        value={phoneNumber}
+                        onChange={(e) => { setPhoneNumber(e.target.value) }}
                      />
                   </div>
                </div>
