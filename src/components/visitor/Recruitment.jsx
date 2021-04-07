@@ -35,14 +35,14 @@ export default _ => {
                   </div>
                   <div className="w-1/2">
                      <label className="block text-white" for="business">
-                        Social Insurance Number
+                        Phone Number
                      </label>
                      <input
                         className="w-full px-5 py-1 text-white bg-gray-800 border-2 border-gray-700 rounded-md font-lg focus:border-yellow-200 focus:outline-none focus:bg-gray-900"
                         type="text"
                         required=""
-                        placeholder="Your SIN"
-                        aria-label="Social Insurance Number"
+                        placeholder="Your Phone #"
+                        aria-label="Phone Number"
                      />
                   </div>
                </div>
