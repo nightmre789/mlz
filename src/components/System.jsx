@@ -19,7 +19,7 @@ export default _ => {
    const [activePage, setActivePage] = useState(0);
    const [state, dispatch] = useContext(Context);
    let navigate = useNavigate();
-   console.log(state.navItems);
+ 
    return (
       <div className="h-screen overflow-y-hidden bg-gray-900 md:flex">
          <nav className="flex-col items-center hidden my-10 xl:w-1/6 md:flex">
@@ -40,7 +40,8 @@ export default _ => {
             </div>
             <button
                onClick={_ => {
-                  dispatch({ type: "SET_TYPE", payload: "Visitor" });
+                  
+                  dispatch({ type: "SET_TYPE", payload: { type: "Visitor"} });
                   navigate("/");
                }}
                className="flex items-center justify-center px-10 py-4 text-2xl font-medium text-white bg-blue-500 rounded-lg gap-x-4 focus:outline-none hover:bg-blue-600 focus:bg-blue-700 "

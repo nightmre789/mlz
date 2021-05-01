@@ -1,13 +1,44 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import SVG from "react-inlinesvg";
 import { Context } from "components/Store";
 import { useNavigate } from "react-router-dom";
-
+import axios from "../../actions/axios";
 import logo from "assets/icons/logo.svg";
 
 export default () => {
    let navigate = useNavigate();
    const [state, dispatch] = useContext(Context);
+   const [email, setEmail] = useState('');
+   const [password, setPassword] = useState('');
+
+   const login = async (e) => {
+      e.preventDefault();
+      await axios
+         .post("/login", {
+            email:email,
+            password:password
+         },{
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+         })
+         .then(res => {
+            
+            console.log('login response',res);
+            
+            dispatch({
+               type:"SET_TYPE",
+               payload: res.data.data
+            });
+            navigate('/');
+            
+         })
+         .catch(err => {
+            console.log('error',err);
+         });
+   };
+
+
+
    return (
       <div class=" flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
          <div class="max-w-md w-full space-y-8">
@@ -17,25 +48,26 @@ export default () => {
                   Sign in to your account
                </h2>
             </div>
-            <form class="mt-8 space-y-6" action="#" method="POST">
+            <form class="mt-8 space-y-6" onSubmit={login} >
                <input type="hidden" name="remember" value="true" />
                <div class="rounded-md shadow-sm -space-y-px">
                   <div>
-                     <label for="username" class="sr-only">
-                        Username
+                     <label htmlFor="email" class="sr-only">
+                        Email
                      </label>
                      <input
-                        id="username"
-                        name="username"
-                        type="username"
-                        autocomplete="username"
+                        id="email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
                         required
                         class="appearance-none rounded-none relative block w-full p-3 border border-yellow-300 placeholder-gray-300 bg-gray-800 text-white rounded-t-md focus:outline-none focus:border-yellow-400 focus:bg-gray-900 hover:bg-gray-900 focus:z-10 sm:text-sm"
-                        placeholder="Username"
+                        placeholder="Email"
+                        onChange={e => setEmail(e.target.value)}
                      />
                   </div>
                   <div>
-                     <label for="password" class="sr-only">
+                     <label htmlFor="password" class="sr-only">
                         Password
                      </label>
                      <input
@@ -46,17 +78,14 @@ export default () => {
                         required
                         class="appearance-none rounded-none relative block w-full p-3 border border-yellow-300 placeholder-gray-300 bg-gray-800 text-white rounded-b-md focus:outline-none focus:border-yellow-400 focus:bg-gray-900 hover:bg-gray-900 focus:z-10 sm:text-sm"
                         placeholder="Password"
+                        onChange={e => setPassword(e.target.value)}
                      />
                   </div>
                </div>
                <div>
                   <button
                      type="submit"
-                     onClick={e => {
-                        e.preventDefault();
-                        // dispatch({ type: "SET_TYPE", payload: "Guard" });
-                        // navigate("/");
-                     }}
+                     
                      class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
                   >
                      <span class="absolute left-0 inset-y-0 flex items-center pl-3">

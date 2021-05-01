@@ -14,6 +14,8 @@
       "tailwind": "npx tailwindcss-cli@latest build ./src/tailwind.css -c ./tailwind.js -o ./src/tailwind.output.css"
    },
    "dependencies": {
+      "@fullcalendar/daygrid": "^5.6.0",
+      "@fullcalendar/react": "^5.6.0",
       "@headlessui/react": "^0.3.1",
       "axios": "^0.21.1",
       "dayjs": "^1.10.4",
