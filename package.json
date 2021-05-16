@@ -5,7 +5,6 @@
       "csa-template"
    ],
    "scripts": {
-      "preinstall": "npm run tailwind",
       "start": "snowpack dev",
       "prebuild": "NODE_ENV=production npm run tailwind",
       "build": "snowpack build",

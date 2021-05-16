@@ -15,8 +15,8 @@ const Reducer = (state, action) => {
    switch (action.type) {
       case "SET_TYPE":
          let items = [];
-         let user; 
-         if (action.payload.type === "Visitor"){
+         let user;
+         if (action.payload.type === "Visitor") {
             items = [
                { label: "Home", src: home, to: "/" },
                { label: "Recruitment", src: recruitment, to: "recruitment" },
@@ -26,7 +26,7 @@ const Reducer = (state, action) => {
             user = {
                type: "Visitor"
             };
-         }else {
+         } else {
             items = [
                { label: "Shifts", to: "shifts", src: shifts },
                { label: "Reports", to: "reports", src: reports },
@@ -72,34 +72,31 @@ const initialState = {
    ]
 };
 
-
 export default ({ children }) => {
-
-   
    const [state, dispatch] = useReducer(Reducer, initialState);
-   
+
    useEffect(() => {
-   
-      axios.get("/user",{
-         'Content-Type': 'application/json',
-         'Accept': 'application/json'
-      }).then(res => {
-         dispatch({
-            type:"SET_TYPE",
-            payload: res.data.data
+      axios
+         .get("/user", {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+         })
+         .then(res => {
+            dispatch({
+               type: "SET_TYPE",
+               payload: res.data.data
+            });
+         })
+         .catch(err => {
+            dispatch({
+               type: "SET_TYPE",
+               payload: {
+                  type: "Visitor"
+               }
+            });
          });
-      }).catch(err => {
-         dispatch({
-            type:"SET_TYPE",
-            payload: {
-               type: "Visitor"
-            }
-         });
-      });
-      
    }, []);
-   
-   
+
    return (
       <Context.Provider value={[state, dispatch]}>{children}</Context.Provider>
    );
