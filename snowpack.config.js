@@ -6,7 +6,8 @@ module.exports = {
    },
    alias: {
       components: "./src/components",
-      assets: "./src/assets"
+      assets: "./src/assets",
+      hooks: "./src/hooks"
    },
    plugins: ["@snowpack/plugin-react-refresh", "@snowpack/plugin-webpack"],
    routes: [

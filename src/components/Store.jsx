@@ -74,7 +74,6 @@ const initialState = {
 
 export default ({ children }) => {
    const [state, dispatch] = useReducer(Reducer, initialState);
-
    useEffect(() => {
       axios
          .get("/user", {

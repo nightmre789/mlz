@@ -283,10 +283,10 @@ export default _ => {
          </div>
          <div className="relative z-10 p-6 bg-gray-900">
             <div className="mx-auto max-w-screen-2xl 2xl:p-4">
-               <h1 className="my-4 text-yellow-200 text-4xl font-semibold tracking-wide font-edmond md:text-6xl">
+               <h1 className="my-4 text-yellow-200 text-3xl font-semibold tracking-wide font-edmond md:text-5xl">
                   About Us
                </h1>
-               <p className="text-xl text-white font-medium">
+               <p className="text-lg text-white ">
                   With a continuous and rapid increase to the crimes rates in
                   Ontario, MLZ Security Services was founded to offer private
                   and corporate security services at competitive rates. The
@@ -306,10 +306,10 @@ export default _ => {
                   our staff works 24 hours a day, 7 days a week to meet and
                   exceed our clients’ needs.
                </p>
-               <h1 className="my-4 text-yellow-200 text-4xl font-semibold tracking-wide font-edmond md:text-6xl text-right">
+               <h1 className="my-4 text-yellow-200 text-3xl font-semibold tracking-wide font-edmond md:text-5xl text-right">
                   Our Mission
                </h1>
-               <p className="text-xl text-white text-right font-medium">
+               <p className="text-lg text-white text-right">
                   Our mission here at MLZ Security Services is to provide our
                   clients with the best security services while also saving them
                   money. We are committed to providing honest work in a cost

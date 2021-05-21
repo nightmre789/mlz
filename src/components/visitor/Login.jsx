@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import SVG from "react-inlinesvg";
 import { Context } from "components/Store";
 import { useNavigate } from "react-router-dom";
@@ -8,36 +8,36 @@ import logo from "assets/icons/logo.svg";
 export default () => {
    let navigate = useNavigate();
    const [state, dispatch] = useContext(Context);
-   const [email, setEmail] = useState('');
-   const [password, setPassword] = useState('');
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
 
-   const login = async (e) => {
+   const login = async e => {
       e.preventDefault();
       await axios
-         .post("/login", {
-            email:email,
-            password:password
-         },{
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-         })
+         .post(
+            "/login",
+            {
+               email: email,
+               password: password
+            },
+            {
+               "Content-Type": "application/json",
+               Accept: "application/json"
+            }
+         )
          .then(res => {
-            
-            console.log('login response',res);
-            
+            console.log("login response", res);
+
             dispatch({
-               type:"SET_TYPE",
+               type: "SET_TYPE",
                payload: res.data.data
             });
-            navigate('/');
-            
+            navigate("/");
          })
          .catch(err => {
-            console.log('error',err);
+            console.log("error", err);
          });
    };
-
-
 
    return (
       <div class=" flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -48,7 +48,7 @@ export default () => {
                   Sign in to your account
                </h2>
             </div>
-            <form class="mt-8 space-y-6" onSubmit={login} >
+            <form class="mt-8 space-y-6" onSubmit={login}>
                <input type="hidden" name="remember" value="true" />
                <div class="rounded-md shadow-sm -space-y-px">
                   <div>
@@ -85,7 +85,6 @@ export default () => {
                <div>
                   <button
                      type="submit"
-                     
                      class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-yellow-500 hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-400"
                   >
                      <span class="absolute left-0 inset-y-0 flex items-center pl-3">

@@ -26,7 +26,9 @@ export default _ => {
             </button>
             <div className="flex items-center justify-center flex-1 gap-x-3">
                <SVG src={logo} className="w-8 h-8" />
-               <h1 className="text-xl font-medium font-edmond">MLZ Security </h1>
+               <h1 className="text-xl font-medium font-edmond">
+                  MLZ Security{" "}
+               </h1>
             </div>
          </div>
          <div
@@ -58,7 +60,7 @@ export default _ => {
                      dispatch({ type: "SET_TYPE", payload: "Visitor" });
                      navigate("/");
                   }}
-                  className="flex items-center justify-center w-5/6 px-8 py-3 mt-5 text-lg font-medium text-white bg-blue-500 rounded-lg gap-x-4 focus:outline-none hover:bg-blue-600 focus:bg-blue-700 "
+                  className="flex items-center justify-center w-5/6 px-8 py-3 mt-5 text-lg font-medium text-gray-800 bg-yellow-300 rounded-lg gap-x-4 hover:bg-yellow-400 0 "
                >
                   <SVG src={door} className="fill-current" />
                   Sign Out
