@@ -1,17 +1,41 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import axios from "../../actions/axios";
+import { Listbox, Transition } from "@headlessui/react";
 
 export default _ => {
+   const [locations, setLocations] = useState([]);
+   const [email, setEmail] = useState("");
+   const [name, setName] = useState("");
+   const [carModel, setCarModel] = useState("");
+   const [location, setLocation] = useState("Pick a location");
+   const [license, setLicense] = useState("");
+   const [unit, setUnit] = useState("");
+   const [phoneNumber, setPhoneNumber] = useState("");
 
-   const [email, setEmail] = useState('');
-   const [name, setName] = useState('');
-   const [carModel, setCarModel] = useState('');
-   const [location, setLocation] = useState('');
-   const [license  , setLicense] = useState('');
-   const [unit, setUnit] = useState('');
-   const [phoneNumber, setPhoneNumber] = useState('');
+   useEffect(_ => {
+      axios
+         .get("/locations", {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+         })
+         .then(res => {
+            setLocations(res.data.data);
+         })
+         .catch(err => {
+            console.log("error: ", e);
+         });
+   }, []);
 
    const onSubmit = e => {
+      console.log({
+         email: email,
+         name: name,
+         model: carModel,
+         license: license,
+         phone: phoneNumber,
+         location: locations.find(loc => (loc.name = "location")).id,
+         unit: unit
+      });
       addUser(e);
    };
 
@@ -24,12 +48,12 @@ export default _ => {
             model: carModel,
             license: license,
             phone: phoneNumber,
-            location: location,
+            location: locations.find(loc => (loc.name = "location")).id,
             unit: unit
          })
          .then(res => {
             console.log(res);
-            alert('success');
+            alert("success");
          })
          .catch(err => {
             console.log(err);
@@ -54,7 +78,9 @@ export default _ => {
                      placeholder="Your Email"
                      aria-label="Email"
                      value={email}
-                     onChange={(e) => { setEmail(e.target.value) }}
+                     onChange={e => {
+                        setEmail(e.target.value);
+                     }}
                   />
                </div>
                <div className="flex items-end mt-2">
@@ -69,7 +95,9 @@ export default _ => {
                         placeholder="Your Full Name"
                         aria-label="Name"
                         value={name}
-                        onChange={(e) => { setName(e.target.value) }}
+                        onChange={e => {
+                           setName(e.target.value);
+                        }}
                      />
                   </div>
                   <div className="w-1/2">
@@ -83,26 +111,115 @@ export default _ => {
                         placeholder="Your Model"
                         aria-label="Car Model"
                         value={carModel}
-                        onChange={(e) => { setCarModel(e.target.value) }}
+                        onChange={e => {
+                           setCarModel(e.target.value);
+                        }}
                      />
                   </div>
                </div>
 
                <div className="flex items-end mt-2">
-                  <div className="w-1/2 mr-3">
-                     <label className="block text-white" for="Location">
-                        Location
-                     </label>
-                     <input
-                        className="w-full px-5 py-1 text-white bg-gray-800 border-2 border-gray-700 rounded-md font-lg focus:border-yellow-200 focus:outline-none focus:bg-gray-900"
-                        type="text"
-                        required=""
-                        placeholder="Location"
-                        aria-label="Location"
-                        value={location}
-                        onChange={(e) => { setLocation(e.target.value) }}
-                     />
-                  </div>
+                  <Listbox
+                     as="div"
+                     className="w-1/2 mr-3"
+                     value={location}
+                     onChange={setLocation}
+                  >
+                     {({ open }) => (
+                        <>
+                           <Listbox.Label className="block text-sm py-2 text-white">
+                              Location
+                           </Listbox.Label>
+                           <div className="relative">
+                              <span className="inline-block w-full rounded-md shadow-sm">
+                                 <Listbox.Button className="relative w-full pl-3 pr-10 text-left text-white transition duration-150 ease-in-out bg-gray-800 border-2 border-gray-700 rounded-md cursor-default focus:outline-none focus:border-yellow-200">
+                                    <span className="block truncate">
+                                       {location}
+                                    </span>
+                                    <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+                                       <svg
+                                          className="w-5 h-5 text-gray-400"
+                                          viewBox="0 0 20 20"
+                                          fill="none"
+                                          stroke="currentColor"
+                                       >
+                                          <path
+                                             d="M7 7l3-3 3 3m0 6l-3 3-3-3"
+                                             strokeWidth="1.5"
+                                             strokeLinecap="round"
+                                             strokeLinejoin="round"
+                                          />
+                                       </svg>
+                                    </span>
+                                 </Listbox.Button>
+                              </span>
+
+                              <Transition
+                                 show={open}
+                                 leave="transition ease-in duration-100"
+                                 leaveFrom="opacity-100"
+                                 leaveTo="opacity-0"
+                                 className="absolute z-10 w-full mt-1 bg-white rounded-md shadow-lg"
+                              >
+                                 <Listbox.Options
+                                    static
+                                    className="py-1 overflow-auto text-base leading-6 rounded-md shadow-xs max-h-60 focus:outline-none sm:text-sm sm:leading-5"
+                                 >
+                                    {locations.map(location => (
+                                       <Listbox.Option
+                                          key={location.id}
+                                          value={location.name}
+                                       >
+                                          {({ selected, active }) => (
+                                             <div
+                                                className={`${
+                                                   active
+                                                      ? "text-white bg-yellow-400"
+                                                      : "text-gray-900"
+                                                } select-none relative py-2 pl-8 pr-4`}
+                                             >
+                                                <span
+                                                   className={`${
+                                                      selected
+                                                         ? "font-semibold"
+                                                         : "font-normal"
+                                                   } block truncate`}
+                                                >
+                                                   {location.name}
+                                                </span>
+                                                {selected && (
+                                                   <span
+                                                      className={`${
+                                                         active
+                                                            ? "text-white"
+                                                            : "text-yellow-400"
+                                                      } absolute inset-y-0 left-0 flex items-center pl-1.5`}
+                                                   >
+                                                      <svg
+                                                         className="w-5 h-5"
+                                                         xmlns="http://www.w3.org/2000/svg"
+                                                         viewBox="0 0 20 20"
+                                                         fill="currentColor"
+                                                      >
+                                                         <path
+                                                            fillRule="evenodd"
+                                                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                                            clipRule="evenodd"
+                                                         />
+                                                      </svg>
+                                                   </span>
+                                                )}
+                                             </div>
+                                          )}
+                                       </Listbox.Option>
+                                    ))}
+                                 </Listbox.Options>
+                              </Transition>
+                           </div>
+                        </>
+                     )}
+                  </Listbox>
+
                   <div className="w-1/2">
                      <label className="block text-white" for="License Plate">
                         License Plate
@@ -114,7 +231,9 @@ export default _ => {
                         placeholder="Your License Plate"
                         aria-label="License Plate Number"
                         value={license}
-                        onChange={(e) => { setLicense(e.target.value) }}
+                        onChange={e => {
+                           setLicense(e.target.value);
+                        }}
                      />
                   </div>
                </div>
@@ -131,7 +250,9 @@ export default _ => {
                         placeholder="Unit Number"
                         aria-label="unit"
                         value={unit}
-                        onChange={(e) => { setUnit(e.target.value) }}
+                        onChange={e => {
+                           setUnit(e.target.value);
+                        }}
                      />
                   </div>
                   <div className="w-1/2">
@@ -145,7 +266,9 @@ export default _ => {
                         placeholder="Your Phone"
                         aria-label="Phone Number"
                         value={phoneNumber}
-                        onChange={(e) => { setPhoneNumber(e.target.value) }}
+                        onChange={e => {
+                           setPhoneNumber(e.target.value);
+                        }}
                      />
                   </div>
                </div>

@@ -7,6 +7,14 @@ import System from "./System";
 export default _ => {
    const [state, dispatch] = useContext(Context);
 
-   
-   return state.user.type === "Loading" ? 'Loading...' : state.user.type === "Visitor" ? <Visitor /> : <System />;
+   useEffect(_ => {
+      console.log(state.user.type);
+   }, []);
+   return state.user.type === "Loading" ? (
+      "Loading..."
+   ) : state.user.type === "Visitor" ? (
+      <Visitor />
+   ) : (
+      <System />
+   );
 };

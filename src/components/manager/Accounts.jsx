@@ -20,6 +20,7 @@ export default _ => {
    const [AddModal, showAddModal, toggleAdd] = useModal(AddUser);
 
    const [EditModal, showEditModal, toggleEdit] = useModal(EditUser);
+   const [toEdit, setToEdit] = useState(null);
 
    useEffect(() => {
       axios
@@ -44,7 +45,14 @@ export default _ => {
             />
          )}
          {showAddModal && <AddModal toggle={toggleAdd} />}
-         {showEditModal && <EditModal toggle={toggleEdit} />}
+         {showEditModal && (
+            <EditModal
+               name={toEdit.name}
+               email={toEdit.email}
+               type={toEdit.type}
+               toggle={toggleEdit}
+            />
+         )}
          <div className="flex gap-x-6 md:gap-x-12 text-white text-lg md:text-3xl font-medium">
             <button
                onClick={_ => setSelected(false)}
@@ -76,7 +84,7 @@ export default _ => {
          <div className="grid grid-cols-2 lg:grid-cols-3 max-w-3xl gap-3 mt-16">
             {accounts
                .filter(a => a.type === (selected ? "Client" : "Guard"))
-               .map(({ id, name, email }) => (
+               .map(({ id, name, email, type }) => (
                   <Account
                      id={id}
                      name={name}
@@ -86,6 +94,12 @@ export default _ => {
                         toggleDelete();
                      }}
                      toggleEdit={_ => {
+                        setToEdit({
+                           id: id,
+                           name: name,
+                           email: email,
+                           type: type
+                        });
                         toggleEdit();
                      }}
                   />

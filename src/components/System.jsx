@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { Context } from "components/Store";
 import { useNavigate } from "react-router-dom";
 import SVG from "react-inlinesvg";
+import axios from "../actions/axios";
 
 import Dashboard from "./guard/Dashboard";
 import Reports from "./reports";
@@ -19,6 +20,28 @@ export default _ => {
    const [activePage, setActivePage] = useState(0);
    const [state, dispatch] = useContext(Context);
    let navigate = useNavigate();
+
+   const signout = _ => {
+      axios
+         .get("/user", {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+         })
+         .then(res => {
+            dispatch({
+               type: "SET_TYPE",
+               payload: res.data.data
+            });
+         })
+         .catch(err => {
+            dispatch({
+               type: "SET_TYPE",
+               payload: {
+                  type: "Visitor"
+               }
+            });
+         });
+   };
 
    return (
       <div className="h-screen overflow-y-hidden bg-gray-900 md:flex">

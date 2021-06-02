@@ -14,6 +14,7 @@ import axios from "../actions/axios";
 const Reducer = (state, action) => {
    switch (action.type) {
       case "SET_TYPE":
+         console.log("setting type", action.payload);
          let items = [];
          let user;
          if (action.payload.type === "Visitor") {
@@ -42,7 +43,7 @@ const Reducer = (state, action) => {
                   to: "/",
                   src: dashboard
                });
-            else if (action.payload === "Manager")
+            else if (action.payload.type === "Manager")
                items.unshift({
                   label: "Accounts",
                   to: "/",
@@ -52,6 +53,7 @@ const Reducer = (state, action) => {
                ...action.payload
             };
          }
+
          return {
             ...state,
             user: user,
@@ -62,7 +64,7 @@ const Reducer = (state, action) => {
 
 const initialState = {
    user: {
-      type: "Loading"
+      type: "Guard"
    },
    navItems: [
       { label: "Home", src: home, to: "/" },
@@ -74,7 +76,9 @@ const initialState = {
 
 export default ({ children }) => {
    const [state, dispatch] = useReducer(Reducer, initialState);
+
    useEffect(() => {
+      console.log(state.user.type);
       axios
          .get("/user", {
             "Content-Type": "application/json",

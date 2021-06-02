@@ -7,8 +7,30 @@ export default props => {
    const [password, setPassword] = useState("");
    const [type, setType] = useState(props.type);
 
-   const onSubmit = e => {
-      console.log(e);
+   const onSubmit = async e => {
+      e.preventDefault();
+      await axios
+         .post(
+            `/admin/update-user/${props.id}`,
+            {
+               name: name,
+               type: type,
+               email: email,
+               password: password
+            },
+            {
+               "Content-Type": "application/json",
+               Accept: "application/json"
+            }
+         )
+         .then(res => {
+            console.log("create user response", res);
+            props.toggle();
+         })
+         .catch(err => {
+            console.log("error", err);
+            props.toggle();
+         });
    };
 
    return (
