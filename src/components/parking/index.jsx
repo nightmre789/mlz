@@ -51,7 +51,7 @@ export default _ => {
 
    return (
       <>
-         {showDeleteModal && (
+         {state.user.type === "Manager" && showDeleteModal && (
             <DeleteModal toggle={toggleDelete} id={toDelete.id} />
          )}
 
@@ -64,6 +64,7 @@ export default _ => {
                   plate={t.license}
                   address={t.location.address}
                   expiry={dayjs(t.created_at).fromNow()}
+                  showDelete={state.user.type === "Manager"}
                   toggleDelete={_ => {
                      setToDelete({ id: t.id });
                      toggleDelete();
