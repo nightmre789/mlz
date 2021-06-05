@@ -26,20 +26,7 @@ export default _ => {
          });
    }, []);
 
-   const onSubmit = e => {
-      console.log({
-         email: email,
-         name: name,
-         model: carModel,
-         license: license,
-         phone: phoneNumber,
-         location: locations.find(loc => (loc.name = "location")).id,
-         unit: unit
-      });
-      addUser(e);
-   };
-
-   const addUser = async e => {
+   const addTicket = async e => {
       e.preventDefault();
       await axios
          .post("/tickets", {
@@ -66,7 +53,7 @@ export default _ => {
             Parking Form
          </h1>
          <div className="px-4 pt-6 mx-auto leading-loose md:px-0 md:w-1/2">
-            <form onSubmit={onSubmit} method="POST">
+            <form onSubmit={addTicket} method="POST">
                <div>
                   <label className="block text-white" for="email">
                      Email
@@ -118,10 +105,10 @@ export default _ => {
                   </div>
                </div>
 
-               <div className="flex items-end mt-2">
+               <div className="md:flex items-end mt-2">
                   <Listbox
                      as="div"
-                     className="w-1/2 mr-3"
+                     className="md:mr-3 md:w-1/2"
                      value={location}
                      onChange={setLocation}
                   >
@@ -168,7 +155,7 @@ export default _ => {
                                     {locations.map(location => (
                                        <Listbox.Option
                                           key={location.id}
-                                          value={location.name}
+                                          value={location.address}
                                        >
                                           {({ selected, active }) => (
                                              <div
@@ -185,7 +172,7 @@ export default _ => {
                                                          : "font-normal"
                                                    } block truncate`}
                                                 >
-                                                   {location.name}
+                                                   {location.address}
                                                 </span>
                                                 {selected && (
                                                    <span
@@ -220,7 +207,7 @@ export default _ => {
                      )}
                   </Listbox>
 
-                  <div className="w-1/2">
+                  <div className="md:w-1/2">
                      <label className="block text-white" for="License Plate">
                         License Plate
                      </label>

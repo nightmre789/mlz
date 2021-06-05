@@ -1,7 +1,7 @@
 import React from "react";
 import { useTable, useSortBy } from "react-table";
 
-export default ({ columns, data }) => {
+export default ({ columns, data, toggleDelete }) => {
    const {
       getTableProps,
       getTableBodyProps,
@@ -75,7 +75,12 @@ export default ({ columns, data }) => {
                                  }`}
                               >
                                  {cell.value === "Delete" ? (
-                                    <button className="w-full md:w-2/3 py-2 text-lg font-medium text-center rounded-full text-red-100 bg-red-500 hover:bg-red-600 focus:ring-2 focus:ring-white focus:outline-none focus:bg-red-700">
+                                    <button
+                                       className="w-full md:w-2/3 py-2 text-lg font-medium text-center rounded-full text-red-100 bg-red-500 hover:bg-red-600 focus:ring-2 focus:ring-white focus:outline-none focus:bg-red-700"
+                                       onClick={_ => {
+                                          console.log(row);
+                                       }}
+                                    >
                                        Delete
                                     </button>
                                  ) : (

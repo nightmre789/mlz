@@ -62,9 +62,22 @@ export default _ => {
                ))}
             </div>
             <button
-               onClick={_ => {
-                  dispatch({ type: "SET_TYPE", payload: { type: "Visitor" } });
-                  navigate("/");
+               onClick={async _ => {
+                  axios
+                     .post("/logout", {
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                     })
+                     .then(_ => {
+                        dispatch({
+                           type: "SET_TYPE",
+                           payload: { type: "Visitor" }
+                        });
+                        navigate("/");
+                     })
+                     .catch(e => {
+                        console.log(e);
+                     });
                }}
                className="flex items-center justify-center px-10 py-4 text-2xl font-medium text-gray-800 bg-yellow-300 rounded-lg gap-x-4 hover:bg-yellow-400"
             >

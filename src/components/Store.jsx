@@ -64,7 +64,7 @@ const Reducer = (state, action) => {
 
 const initialState = {
    user: {
-      type: "Guard"
+      type: "Loading"
    },
    navItems: [
       { label: "Home", src: home, to: "/" },

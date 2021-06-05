@@ -34,7 +34,7 @@ export default props => {
    };
 
    return (
-      <div className="flex items-center justify-center flex-col w-full px-6 md:px-0 md:w-auto">
+      <div className="flex items-center justify-center flex-col w-full px-6 md:px-0 md:w-2/5 xl:w-1/4">
          <p className="text-white text-2xl md:text-5xl mb-8">{`Edit user ${props.name}`}</p>
 
          <div className="leading-loose w-full">
