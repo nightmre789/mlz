@@ -6,6 +6,7 @@ import Landing from "./Landing";
 import Recruitment from "./Recruitment";
 import Parking from "./Parking";
 import Login from "./Login";
+import Services from "./Services";
 import MobileNav from "components/MobileNav";
 
 import logo from "assets/icons/logo.svg";
@@ -18,7 +19,7 @@ export default _ => {
       <div className="relative min-h-screen overflow-hidden bg-gray-900">
          <nav className="hidden p-4 bg-gray-900 md:block ">
             <div className="relative items-center hidden mx-auto text-lg font-semibold text-white md:flex max-w-screen-2xl 2xl:p-4 gap-x-8 ">
-               <SVG src={logo} className="w-16 mr-4" />
+               <SVG src={logo} className="w-16 h-16 mr-4" />
                <Link to="/" className="hover:text-yellow-200">
                   Home
                </Link>
@@ -27,6 +28,9 @@ export default _ => {
                </Link>
                <Link to="parking" className="hover:text-yellow-200">
                   Parking Ticket
+               </Link>
+               <Link to="services" className="hover:text-yellow-200">
+                  Services
                </Link>
                <Link
                   to="login"
@@ -45,6 +49,7 @@ export default _ => {
             <Route path="/" element={<Landing />} />
             <Route path="recruitment" element={<Recruitment />} />
             <Route path="parking" element={<Parking />} />
+            <Route path="services" element={<Services />} />
             <Route path="login" element={<Login />} />
          </Routes>
       </div>

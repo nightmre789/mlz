@@ -1,7 +1,7 @@
 import React from "react";
 import SVG from "react-inlinesvg";
 
-import del from "assets/icons/delete.svg";
+import deleteIcon from "assets/icons/delete.svg";
 
 export default ({
    name,
@@ -29,7 +29,10 @@ export default ({
                } items-center  gap-x-2 px-2 py-1`}
                onClick={toggleDelete}
             >
-               <SVG src={del} className="fill-current w-4 h-4 md:w-7 md:h-7" />
+               <SVG
+                  src={deleteIcon}
+                  className="fill-current w-4 h-4 md:w-7 md:h-7"
+               />
             </button>
          </div>
       </div>

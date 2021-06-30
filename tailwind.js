@@ -56,6 +56,9 @@ module.exports = {
          },
          zIndex: {
             "-10": "-10"
+         },
+         fontFamily: {
+            roboto: ["Roboto", "sans-serif"]
          }
       }
    },

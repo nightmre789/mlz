@@ -9,6 +9,8 @@ import users from "assets/icons/users.svg";
 import home from "assets/icons/home.svg";
 import recruitment from "assets/icons/recruitment.svg";
 import user from "assets/icons/user.svg";
+import navshield from "assets/icons/navshield.svg";
+
 import axios from "../actions/axios";
 
 const Reducer = (state, action) => {
@@ -22,6 +24,7 @@ const Reducer = (state, action) => {
                { label: "Home", src: home, to: "/" },
                { label: "Recruitment", src: recruitment, to: "recruitment" },
                { label: "Parking Ticket", src: parking, to: "parking" },
+               { label: "Services", src: navshield, to: "services" },
                { label: "Sign in", src: user, to: "login" }
             ];
             user = {
@@ -65,13 +68,7 @@ const Reducer = (state, action) => {
 const initialState = {
    user: {
       type: "Loading"
-   },
-   navItems: [
-      { label: "Home", src: home, to: "/" },
-      { label: "Recruitment", src: recruitment, to: "recruitment" },
-      { label: "Parking Ticket", src: parking, to: "parking" },
-      { label: "Sign in", src: user, to: "login" }
-   ]
+   }
 };
 
 export default ({ children }) => {

@@ -1,19 +1,12 @@
-import React, { useState } from "react";
+import React, { Profiler, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import SVG from "react-inlinesvg";
 import Slider from "react-slick";
 
 import LandingGallery from "./LandingGallery";
-import ServiceCard from "./ServiceCard";
 
-import condo from "assets/icons/condo.svg";
-import construction from "assets/icons/construction.svg";
-import industrial from "assets/icons/industrial.svg";
-import parking from "assets/icons/parking.svg";
-import mall from "assets/icons/mall.svg";
-import dealership from "assets/icons/dealership.svg";
-import shield from "assets/icons/shield.svg";
 import quote from "assets/icons/quote.svg";
+import down from "assets/icons/down.svg";
 
 import fleet1 from "assets/images/fleet1.jpg";
 import fleet2 from "assets/images/fleet2.jpg";
@@ -229,105 +222,71 @@ export default _ => {
                </div>
             </div>
          </div>
-         <div className="relative p-6 bg-gray-030 ">
-            <SVG
-               src={shield}
-               className="absolute hidden text-yellow-200 opacity-75 fill-current xl:block"
-               style={{
-                  width: "72rem",
-                  height: "72rem",
-                  left: "-30%",
-                  top: "-10%"
-               }}
-            />
-            <div className="mx-auto mb-24 2xl:mx-0 2xl:mr-24 max-w-screen-2xl 2xl:p-4">
-               <h1 className="my-4 text-5xl font-semibold tracking-wide text-center md:mb-8 font-edmond md:text-7xl">
-                  Our Services
-               </h1>
-               <div className="grid gap-x-4 md:gap-y-8 sm:grid-cols-2 xl:grid-cols-3">
-                  <ServiceCard
-                     src={condo}
-                     title="Condominium Security"
-                     text="Our concierges are highly professional, reliable, and dependable in
-                  providing a high degree of security and customer service to ensure
-                  the safety of condominium residents, visitors, and staff. They are
-                  trained to provide exceptional customer service."
-                  />
-                  <ServiceCard
-                     src={construction}
-                     title="Construction Security"
-                     text="Our construction site security personnel offer superior access control to sites while ensuring the deterrence of threats, thefts, and vandalism. The continuous patrolling of the properties eliminates potential threats against the property."
-                  />
-                  <ServiceCard
-                     src={industrial}
-                     title="Commercial / Industrial Security"
-                     text="MLZ Security provides the utmost in dependability and believes in providing the best security services for your commercial and/or industrial properties. For commercial and industrial properties, we offer a vast range of security services such as access control and rapid response to any leaks, fire, theft, vandalism, and other potential hazards."
-                  />
-                  <ServiceCard
-                     src={parking}
-                     title="Parking and Mobile Patrol"
-                     text="Our highly trained Mobile Patrol Supervisors will immediately come to your site in marked security vehicles. Our key to success is our constant mobility in providing additional support to our field staff in the event of an emergency."
-                  />
-                  <ServiceCard
-                     src={mall}
-                     title="Mall / Plaza Security"
-                     text="In addition to reducing the threat of shoplifting, vandalism, dumping, trespassing, and illegal parking, MLZ Security secures the premises for shoppers to shop freely without the concern of their safety. Our highly trained guards are motivated and well trained to provide the best customer service and in-class security on and off the premises."
-                  />
-                  <ServiceCard
-                     src={dealership}
-                     title="Dealership"
-                     text="As the upward trend increases in auto theft, car dealerships are getting hit more frequently for auto theft, car rims/ accessories theft, and vandalism, to the vehicles and the property. To prevent future conflicts related to auto crimes, at MLZ Security, our team develops a plan that maximizes security at auto malls/ car dealerships while minimizing the cost for the client."
+
+         <div className="flex flex-col items-center justify-center text-white text-5xl sm:text-6xl md:text-8xl font-roboto font-bold h-64 bg-gradient-to-tr from-yellow-300 text-center to-red-400 tracking-widest">
+            WHO WE ARE.
+            <SVG src={down} className="fill-current mt-6" />
+         </div>
+         <div className="bg-white">
+            <div className="mx-auto max-w-screen-2xl p-4">
+               <div className="border mt-16 border-gray-900 w-24"></div>
+               <div className="lg:flex">
+                  <div className="lg:w-1/2">
+                     <h1 className="mt-6 mb-12 text-gray-900 font-roboto font-medium text-3xl md:text-5xl">
+                        ABOUT US
+                     </h1>
+                     <p className="text-lg">
+                        With a continuous and rapid increase to the crimes rates
+                        in Ontario, MLZ Security Services was founded to offer
+                        private and corporate security services at competitive
+                        rates. The services that we provide are, but are not
+                        limited to, condominium security and concierge services,
+                        construction site security, commercial and industrial
+                        security, and fire watch. MLZ Security Services is based
+                        in Brampton, Ontario, however, we provide security
+                        services all throughout the Greater Toronto Area (GTA).
+                        At MLZ Security Services, we pride ourselves on having
+                        and maintaining a professional and tactical image. From
+                        our fleet to our security staff, it is all put through a
+                        critical process to ensure that we only offer the best
+                        of services. Our security guards are selected through a
+                        vigorous process, and are equipped and trained with
+                        state-of-the-art technology to make sure that our
+                        clients’ assets are secured and protected. At MLZ
+                        Security Services, our staff works 24 hours a day, 7
+                        days a week to meet and exceed our clients’ needs.
+                     </p>
+                     <div className="border mt-16 border-gray-900 w-24"></div>
+                     <h1 className="mt-6 mb-12 text-gray-900 font-roboto font-medium text-3xl md:text-5xl">
+                        OUR MISSION
+                     </h1>
+                     <p className="text-lg">
+                        Our mission here at MLZ Security Services is to provide
+                        our clients with the best security services while also
+                        saving them money. We are committed to providing honest
+                        work in a cost efficient manner while offering more then
+                        just regular patrols.
+                     </p>
+                  </div>
+                  <img
+                     src={fleet3}
+                     alt="car"
+                     className="hidden lg:block w-1/2 pl-12"
                   />
                </div>
             </div>
          </div>
-         <div className="relative z-10 p-6 bg-gray-900">
-            <div className="mx-auto max-w-screen-2xl 2xl:p-4">
-               <h1 className="my-4 text-yellow-200 text-3xl font-semibold tracking-wide font-edmond md:text-5xl">
-                  About Us
+         <div className="mx-auto max-w-screen-2xl p-4">
+            <div className="md:flex py-6 text-white roboto font-medium">
+               <h1 className="text-lg flex text-center justify-center md:text-left md:text-xl">
+                  Copyright © 2021 MLZ Security Services
+                  <br />
+                  647 482 0659
                </h1>
-               <p className="text-lg text-white ">
-                  With a continuous and rapid increase to the crimes rates in
-                  Ontario, MLZ Security Services was founded to offer private
-                  and corporate security services at competitive rates. The
-                  services that we provide are, but are not limited to,
-                  condominium security and concierge services, construction site
-                  security, commercial and industrial security, and fire watch.
-                  MLZ Security Services is based in Brampton, Ontario, however,
-                  we provide security services all throughout the Greater
-                  Toronto Area (GTA). At MLZ Security Services, we pride
-                  ourselves on having and maintaining a professional and
-                  tactical image. From our fleet to our security staff, it is
-                  all put through a critical process to ensure that we only
-                  offer the best of services. Our security guards are selected
-                  through a vigorous process, and are equipped and trained with
-                  state-of-the-art technology to make sure that our clients’
-                  assets are secured and protected. At MLZ Security Services,
-                  our staff works 24 hours a day, 7 days a week to meet and
-                  exceed our clients’ needs.
-               </p>
-               <h1 className="my-4 text-yellow-200 text-3xl font-semibold tracking-wide font-edmond md:text-5xl text-right">
-                  Our Mission
-               </h1>
-               <p className="text-lg text-white text-right">
-                  Our mission here at MLZ Security Services is to provide our
-                  clients with the best security services while also saving them
-                  money. We are committed to providing honest work in a cost
-                  efficient manner while offering more then just regular
-                  patrols.
-               </p>
-
-               <div className="text-white md:flex mt-24">
-                  <h1 className="text-lg flex items-end font-medium md:text-xl">
-                     Copyright © 2021 MLZ Security Services
+               <div className="flex-1 text-lg text-center md:text-xl md:text-right">
+                  <h1>
+                     12-247 Queen St E, Brampton, ON <br /> L6W 2B5
                   </h1>
-                  <div className="flex-1 mt-2 text-lg font-medium md:mt-0 md:text-xl md:text-right">
-                     <h1 className="my-4 text-yellow-200 text-3xl font-semibold tracking-wide font-edmond md:text-4xl text-right">
-                        Contact Us
-                     </h1>
-                     <h1>12-247 Queen St E, Brampton, ON L6W 2B5</h1>
-                     <h1>647 482 0659</h1>
-                  </div>
                </div>
             </div>
          </div>

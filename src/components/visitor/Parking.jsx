@@ -35,7 +35,7 @@ export default _ => {
             model: carModel,
             license: license,
             phone: phoneNumber,
-            location: locations.find(loc => (loc.name = "location")).id,
+            location: locations.find(l => (l.name = "location")).id,
             unit: unit
          })
          .then(res => {

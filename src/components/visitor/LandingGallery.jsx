@@ -1,8 +1,9 @@
 import React from "react";
 
-import skyscraper from "assets/images/skyscraper.png";
-import security from "assets/images/security.png";
-import vest from "assets/images/vest.png";
+import fleet1 from "assets/images/fleet1_r.jpg";
+import fleet2 from "assets/images/fleet2_r.jpg";
+import fleet3 from "assets/images/fleet3_r.jpg";
+import fleet4 from "assets/images/fleet4.jpg";
 
 export default _ => {
    return (
@@ -18,28 +19,22 @@ export default _ => {
             <div className="flex gap-2 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10">
                <div className="self-end w-1/3">
                   <img
-                     src={vest}
+                     src={fleet3}
                      alt="landing"
                      style={{ borderRadius: "15%" }}
                   />
                </div>
                <div className="w-2/3">
                   <img
-                     src={skyscraper}
+                     src={fleet1}
                      alt="landing"
                      style={{ borderRadius: "15%" }}
                   />
                </div>
             </div>
 
-            <img src={security} alt="landing" style={{ borderRadius: "15%" }} />
+            <img src={fleet2} alt="landing" style={{ borderRadius: "15%" }} />
          </div>
-         <img
-            src="https://images.unsplash.com/photo-1496498808362-7e2ec3b323d4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2002&q=80"
-            alt="landing"
-            className="w-1/2"
-            style={{ borderRadius: "15%" }}
-         />
       </div>
    );
 };
