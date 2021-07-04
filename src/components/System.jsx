@@ -7,7 +7,7 @@ import axios from "../actions/axios";
 
 import Dashboard from "./guard/Dashboard";
 import Reports from "./reports";
-import GuardShifts from "./guard/Shifts";
+import Shifts from "./shifts";
 import Parking from "./parking";
 import Accounts from "./manager/Accounts";
 
@@ -95,16 +95,7 @@ export default _ => {
                   }
                />
                <Route path="reports/*" element={<Reports />} />
-               <Route
-                  path="shifts/*"
-                  element={
-                     state.user.type === "Guard" ? (
-                        <GuardShifts />
-                     ) : (
-                        <div>test</div>
-                     )
-                  }
-               />
+               <Route path="shifts/*" element={<Shifts />} />
                <Route path="parking" element={<Parking />} />
             </Routes>
          </div>

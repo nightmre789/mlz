@@ -13,7 +13,7 @@ import shield from "assets/icons/shield.svg";
 
 export default _ => {
    return (
-      <div className="relative p-6 bg-gray-030 h-screen">
+      <div className="relative p-6 bg-gray-030">
          <SVG
             src={shield}
             className="absolute pointer-events-none hidden text-yellow-200 opacity-75 fill-current xl:block"

@@ -49,7 +49,7 @@ export default _ => {
                <img src={fleet6} />
             </Slider>
             <div className="hidden mx-auto md:block max-w-screen-2xl 2xl:p-4">
-               <h1 className="relative z-10 text-6xl font-semibold text-center md:text-left md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-gray-50 font-edmond">
+               <h1 className="relative z-10 text-6xl font-semibold text-center md:text-left md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-gray-50 font-roboto">
                   Get <span className="text-yellow-200">Secured</span>
                   <br />
                   with our team!
@@ -223,7 +223,7 @@ export default _ => {
             </div>
          </div>
 
-         <div className="flex flex-col items-center justify-center text-white text-5xl sm:text-6xl md:text-8xl font-roboto font-bold h-64 bg-gradient-to-tr from-yellow-300 text-center to-red-400 tracking-widest">
+         <div className="flex flex-col items-center justify-center text-white text-5xl sm:text-6xl md:text-8xl font-roboto font-bold h-64 bg-gradient-to-tr from-red-400 text-center to-yellow-300 tracking-widest">
             WHO WE ARE.
             <SVG src={down} className="fill-current mt-6" />
          </div>
